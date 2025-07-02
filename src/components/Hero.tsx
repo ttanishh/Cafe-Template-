@@ -2,7 +2,11 @@ import { ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import heroImage from '@/assets/hero-coffee-shop.jpg';
 
-const Hero = () => {
+interface HeroProps {
+  onAIRecommenderOpen?: () => void;
+}
+
+const Hero = ({ onAIRecommenderOpen }: HeroProps = {}) => {
   const scrollToFeatures = () => {
     document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -32,11 +36,14 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/menu" className="btn-gold text-lg px-8 py-4">
+            <Link to="/menu" className="btn-gold text-lg px-8 py-4 animate-glow">
               Explore Menu
             </Link>
-            <button className="bg-white/10 text-white border border-white/20 hover:bg-white/20 px-8 py-4 rounded-lg font-medium transition-all duration-300">
-              AI Recommender
+            <button 
+              onClick={onAIRecommenderOpen}
+              className="glass-morphism text-white border border-white/20 hover:bg-white/20 px-8 py-4 rounded-lg font-medium transition-all duration-300 neon-border"
+            >
+              AI Recommender ✨
             </button>
           </div>
         </div>

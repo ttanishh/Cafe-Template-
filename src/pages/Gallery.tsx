@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
+import VirtualTour from '@/components/VirtualTour';
 import heroImage from '@/assets/hero-coffee-shop.jpg';
 import latteArtImage from '@/assets/latte-art.jpg';
 import coffeeBeansImage from '@/assets/coffee-beans.jpg';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isVirtualTourOpen, setIsVirtualTourOpen] = useState(false);
 
   const galleryImages = [
     {
@@ -110,8 +112,11 @@ const Gallery = () => {
             <p className="text-lg text-muted-foreground mb-6">
               Experience our space from anywhere with our immersive 360° virtual tour
             </p>
-            <button className="btn-coffee text-lg px-8 py-4">
-              Start Virtual Tour
+            <button 
+              onClick={() => setIsVirtualTourOpen(true)}
+              className="btn-coffee text-lg px-8 py-4 holographic"
+            >
+              Start Virtual Tour 🌐
             </button>
           </div>
         </div>
@@ -138,6 +143,9 @@ const Gallery = () => {
           </div>
         </div>
       )}
+      
+      {/* Virtual Tour Component */}
+      <VirtualTour isOpen={isVirtualTourOpen} onClose={() => setIsVirtualTourOpen(false)} />
     </div>
   );
 };

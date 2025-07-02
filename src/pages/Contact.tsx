@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
+import ReserveTable from '@/components/ReserveTable';
 
 const Contact = () => {
+  const [isReserveTableOpen, setIsReserveTableOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -167,12 +169,18 @@ const Contact = () => {
             <p className="text-lg text-muted-foreground mb-6">
               Secure your spot for the ultimate coffee experience. View our real-time table availability.
             </p>
-            <button className="btn-gold text-lg px-8 py-4">
-              Check Availability
+            <button 
+              onClick={() => setIsReserveTableOpen(true)}
+              className="btn-gold text-lg px-8 py-4 holographic animate-glow"
+            >
+              Check Availability 📅
             </button>
           </div>
         </div>
       </section>
+      
+      {/* Reserve Table Component */}
+      <ReserveTable isOpen={isReserveTableOpen} onClose={() => setIsReserveTableOpen(false)} />
     </div>
   );
 };

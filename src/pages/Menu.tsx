@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import MenuCard from '@/components/MenuCard';
+import BrewBot from '@/components/BrewBot';
 import latteArtImage from '@/assets/latte-art.jpg';
 import coffeeBeansImage from '@/assets/coffee-beans.jpg';
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [isBrewBotOpen, setIsBrewBotOpen] = useState(false);
 
   const categories = ['All', 'Espresso', 'Cold Brew', 'Seasonal', 'Specialty'];
 
@@ -132,12 +134,18 @@ const Menu = () => {
             <p className="text-lg text-muted-foreground mb-6">
               Let BrewBot analyze your preferences and recommend the perfect coffee for your mood and the current weather.
             </p>
-            <button className="btn-coffee text-lg px-8 py-4">
+            <button 
+              onClick={() => setIsBrewBotOpen(true)}
+              className="btn-coffee text-lg px-8 py-4 animate-pulse-slow"
+            >
               Ask BrewBot ☕
             </button>
           </div>
         </div>
       </section>
+      
+      {/* BrewBot Component */}
+      <BrewBot isOpen={isBrewBotOpen} onClose={() => setIsBrewBotOpen(false)} />
     </div>
   );
 };

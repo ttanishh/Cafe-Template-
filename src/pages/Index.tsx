@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
+import BrewBot from '@/components/BrewBot';
+import AIRecommender from '@/components/AIRecommender';
 
 const Index = () => {
+  const [isBrewBotOpen, setIsBrewBotOpen] = useState(false);
+  const [isAIRecommenderOpen, setIsAIRecommenderOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -23,12 +29,19 @@ const Index = () => {
             <Link to="/menu" className="btn-gold text-lg px-8 py-4">
               Visit Our Menu
             </Link>
-            <Link to="/contact" className="bg-white/10 text-white border border-white/20 hover:bg-white/20 px-8 py-4 rounded-lg font-medium transition-all duration-300">
-              Find Our Location
-            </Link>
+            <button 
+              onClick={() => setIsAIRecommenderOpen(true)}
+              className="glass-morphism text-white border border-white/20 hover:bg-white/20 px-8 py-4 rounded-lg font-medium transition-all duration-300 neon-border"
+            >
+              AI Recommender ✨
+            </button>
           </div>
         </div>
       </section>
+      
+      {/* Interactive Components */}
+      <BrewBot isOpen={isBrewBotOpen} onClose={() => setIsBrewBotOpen(false)} />
+      <AIRecommender isOpen={isAIRecommenderOpen} onClose={() => setIsAIRecommenderOpen(false)} />
     </div>
   );
 };

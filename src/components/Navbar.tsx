@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'lucide-react';
+import ReserveTable from './ReserveTable';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isReserveTableOpen, setIsReserveTableOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
@@ -47,8 +49,11 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <button className="btn-coffee">
-              Reserve Table
+            <button 
+              onClick={() => setIsReserveTableOpen(true)}
+              className="btn-coffee animate-glow"
+            >
+              Reserve Table ✨
             </button>
           </div>
 
@@ -80,14 +85,23 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <button className="btn-coffee w-full">
-                  Reserve Table
+                <button 
+                  onClick={() => {
+                    setIsReserveTableOpen(true);
+                    setIsMenuOpen(false);
+                  }}
+                  className="btn-coffee w-full"
+                >
+                  Reserve Table ✨
                 </button>
               </div>
             </div>
           </div>
         )}
       </div>
+      
+      {/* Reserve Table Component */}
+      <ReserveTable isOpen={isReserveTableOpen} onClose={() => setIsReserveTableOpen(false)} />
     </nav>
   );
 };
