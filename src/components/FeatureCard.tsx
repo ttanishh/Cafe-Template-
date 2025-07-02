@@ -3,11 +3,12 @@ interface FeatureCardProps {
   title: string;
   description: string;
   image?: string;
+  onClick?: () => void;
 }
 
-const FeatureCard = ({ icon, title, description, image }: FeatureCardProps) => {
+const FeatureCard = ({ icon, title, description, image, onClick }: FeatureCardProps) => {
   return (
-    <div className="card-coffee group cursor-pointer">
+    <div className={`card-coffee group ${onClick ? 'cursor-pointer' : ''}`} onClick={onClick}>
       {image && (
         <div className="mb-4 overflow-hidden rounded-lg">
           <img 

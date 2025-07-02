@@ -6,7 +6,7 @@ interface HeroProps {
   onAIRecommenderOpen?: () => void;
 }
 
-const Hero = ({ onAIRecommenderOpen }: HeroProps = {}) => {
+const Hero = ({ onAIRecommenderOpen }: HeroProps) => {
   const scrollToFeatures = () => {
     document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
   };
