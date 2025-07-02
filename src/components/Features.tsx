@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import FeatureCard from './FeatureCard';
+import LatteArt from './LatteArt';
 import latteArtImage from '@/assets/latte-art.jpg';
 import coffeeBeansImage from '@/assets/coffee-beans.jpg';
 
 const Features = () => {
+  const [isLatteArtOpen, setIsLatteArtOpen] = useState(false);
+  
   const features = [
     {
       icon: '🤖',
@@ -45,11 +49,17 @@ const Features = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button className="btn-coffee text-lg px-8 py-4">
-            Experience All Features
+          <button 
+            onClick={() => setIsLatteArtOpen(true)}
+            className="btn-coffee text-lg px-8 py-4 animate-glow"
+          >
+            Try Latte Art Studio 🎨
           </button>
         </div>
       </div>
+      
+      {/* Latte Art Component */}
+      <LatteArt isOpen={isLatteArtOpen} onClose={() => setIsLatteArtOpen(false)} />
     </section>
   );
 };
