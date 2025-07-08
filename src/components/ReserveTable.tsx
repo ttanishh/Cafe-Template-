@@ -56,8 +56,8 @@ const ReserveTable = ({ isOpen, onClose }: ReserveTableProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-[9999] flex items-center justify-center p-4">
-      <div className="bg-background rounded-2xl shadow-2xl w-full max-w-5xl max-h-[85vh] flex overflow-hidden border border-accent/20 animate-scale-in">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 overflow-y-auto">
+      <div className="bg-background rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] min-h-[600px] flex overflow-hidden border border-accent/20 my-8">
         
         {/* Floor Plan */}
         <div className="flex-1 p-6">
