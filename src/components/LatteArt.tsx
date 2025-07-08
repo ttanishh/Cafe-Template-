@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import customLatteArt from '@/assets/custom-latte-art.jpg';
 
 interface LatteArtProps {
   isOpen: boolean;
@@ -14,7 +15,7 @@ const LatteArt = ({ isOpen, onClose }: LatteArtProps) => {
     { id: 'leaf', name: 'Rosetta Leaf', emoji: '🍃', difficulty: 'Intermediate' },
     { id: 'swan', name: 'Elegant Swan', emoji: '🦢', difficulty: 'Advanced' },
     { id: 'mandala', name: 'Sacred Mandala', emoji: '🕸️', difficulty: 'Master' },
-    { id: 'custom', name: 'AI Generated', emoji: '🤖', difficulty: 'Futuristic' }
+    { id: 'custom', name: 'Blooming Rose', emoji: '🌹', difficulty: 'Masterpiece' }
   ];
 
   const generateArt = () => {
@@ -43,18 +44,25 @@ const LatteArt = ({ isOpen, onClose }: LatteArtProps) => {
             {/* Coffee Surface */}
             <div className="absolute inset-4 bg-gradient-to-br from-amber-900 to-amber-950 rounded-full flex items-center justify-center overflow-hidden">
               
-              {/* Latte Art Patterns */}
+              {/* Latte Art Display */}
               {!isGenerating ? (
                 <div className="relative w-full h-full flex items-center justify-center">
-                  {selectedDesign === 'heart' && (
+                  {selectedDesign === 'custom' ? (
+                    <div className="w-72 h-72 rounded-full overflow-hidden">
+                      <img 
+                        src={customLatteArt} 
+                        alt="Custom Latte Art" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : selectedDesign === 'heart' ? (
                     <div className="relative">
                       <div className="w-20 h-16 bg-amber-100 rounded-t-full transform rotate-45 relative">
                         <div className="absolute -right-8 top-0 w-20 h-16 bg-amber-100 rounded-t-full"></div>
                         <div className="absolute top-12 left-2 w-0 h-0 border-l-8 border-r-8 border-t-16 border-l-transparent border-r-transparent border-t-amber-100 transform rotate-45"></div>
                       </div>
                     </div>
-                  )}
-                  {selectedDesign === 'leaf' && (
+                  ) : selectedDesign === 'leaf' ? (
                     <div className="w-24 h-40 bg-amber-100 rounded-full relative transform -rotate-12">
                       <div className="absolute top-2 left-1/2 w-0.5 h-36 bg-amber-200 transform -translate-x-1/2"></div>
                       <div className="absolute top-8 left-2 w-8 h-0.5 bg-amber-200 transform rotate-45"></div>
@@ -62,16 +70,14 @@ const LatteArt = ({ isOpen, onClose }: LatteArtProps) => {
                       <div className="absolute top-16 left-2 w-6 h-0.5 bg-amber-200 transform rotate-45"></div>
                       <div className="absolute top-20 right-2 w-6 h-0.5 bg-amber-200 transform -rotate-45"></div>
                     </div>
-                  )}
-                  {selectedDesign === 'swan' && (
+                  ) : selectedDesign === 'swan' ? (
                     <div className="relative">
                       <div className="w-16 h-20 bg-amber-100 rounded-full transform rotate-12"></div>
                       <div className="absolute -top-2 right-2 w-8 h-12 bg-amber-100 rounded-t-full transform rotate-45"></div>
                       <div className="absolute top-4 -left-4 w-12 h-8 bg-amber-100 rounded-l-full"></div>
                       <div className="absolute top-1 right-6 w-2 h-2 bg-amber-800 rounded-full"></div>
                     </div>
-                  )}
-                  {selectedDesign === 'mandala' && (
+                  ) : selectedDesign === 'mandala' ? (
                     <div className="relative w-32 h-32">
                       <div className="absolute inset-0 border-2 border-amber-100 rounded-full"></div>
                       <div className="absolute inset-4 border-2 border-amber-100 rounded-full"></div>
@@ -80,15 +86,7 @@ const LatteArt = ({ isOpen, onClose }: LatteArtProps) => {
                       <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-amber-100"></div>
                       <div className="absolute inset-0 border-2 border-amber-100 rounded-full transform rotate-45"></div>
                     </div>
-                  )}
-                  {selectedDesign === 'custom' && (
-                    <div className="relative">
-                      <div className="w-24 h-24 border-4 border-amber-100 rounded-full animate-spin"></div>
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-amber-100 text-xs">
-                        AI
-                      </div>
-                    </div>
-                  )}
+                  ) : null}
                 </div>
               ) : (
                 <div className="relative">
