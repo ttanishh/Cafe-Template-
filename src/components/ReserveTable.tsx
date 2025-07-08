@@ -56,14 +56,14 @@ const ReserveTable = ({ isOpen, onClose }: ReserveTableProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-background rounded-2xl shadow-2xl w-full max-w-6xl h-[700px] flex overflow-hidden border border-accent/20">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 overflow-y-auto">
+      <div className="bg-background rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] min-h-[600px] flex overflow-hidden border border-accent/20 my-8">
         
         {/* Floor Plan */}
         <div className="flex-1 p-6">
           <h2 className="font-serif text-2xl font-bold text-primary mb-4">Select Your Table</h2>
           
-          <div className="relative w-full h-[500px] border-2 border-border rounded-xl overflow-hidden">
+          <div className="relative w-full h-[400px] border-2 border-border rounded-xl overflow-hidden">
             {/* Background */}
             <img 
               src={floorPlan} 
@@ -115,7 +115,7 @@ const ReserveTable = ({ isOpen, onClose }: ReserveTableProps) => {
         </div>
         
         {/* Reservation Form */}
-        <div className="w-80 p-6 bg-secondary border-l border-border">
+        <div className="w-80 p-6 bg-secondary border-l border-border overflow-y-auto">
           <div className="flex items-center justify-between mb-6">
             <h2 className="font-serif text-xl font-bold text-primary">Reserve</h2>
             <button 
