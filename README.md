@@ -1,73 +1,87 @@
-# Welcome to your Lovable project
+# Brew AI Cafe ☕🤖
 
-## Project info
+Welcome to **Brew AI Cafe** – a modern, AI-powered coffee shop experience! This project is a template for a smart cafe website, featuring interactive AI baristas, virtual tours, and a beautiful, responsive design. Perfect for coffee shops, tech demos, or anyone looking to blend technology with hospitality.
 
-**URL**: https://lovable.dev/projects/571a0306-c874-4006-a606-8d1eeefbc39f
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- **AI Barista**: Get personalized coffee recommendations with our AI-powered BrewBot.
+- **Virtual Tour**: Explore the cafe space with a 360° virtual tour.
+- **Custom Latte Art**: Preview and order custom latte art creations.
+- **Ambient Sound**: Enjoy a cozy atmosphere with ambient cafe sounds.
+- **Table Reservation**: Reserve your favorite spot online.
+- **Modern UI**: Built with React, Tailwind CSS, and TypeScript for a seamless, responsive experience.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/571a0306-c874-4006-a606-8d1eeefbc39f) and start prompting.
+## 🖥️ Demo
 
-Changes made via Lovable will be committed automatically to this repo.
+> _Add a link to your live demo here if available._
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📦 Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
+- Node.js (v16+ recommended)
+- npm or bun
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+# Clone the repository
+git clone https://github.com/ttanishh/Cafe-Template-.git
+cd brew-ai-cafe
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Install dependencies
+npm install
+# or
+bun install
 ```
 
-**Edit a file directly in GitHub**
+### Running the App
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Start the development server
+npm run dev
+# or
+bun run dev
+```
 
-**Use GitHub Codespaces**
+Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 🗂️ Project Structure
 
-This project is built with:
+```
+brew-ai-cafe/
+├── public/           # Static assets
+├── src/
+│   ├── assets/       # Images and media
+│   ├── components/   # React components
+│   ├── hooks/        # Custom hooks
+│   ├── lib/          # Utilities
+│   ├── pages/        # Page components
+│   └── main.tsx      # App entry point
+├── package.json
+└── README.md
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## ✨ Credits
 
-Simply open [Lovable](https://lovable.dev/projects/571a0306-c874-4006-a606-8d1eeefbc39f) and click on Share -> Publish.
+- Built by [Tanish](https://github.com/ttanishh)
+- Inspired by modern coffee culture and AI innovation
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 📄 License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This project is open source and available under the [MIT License](LICENSE).
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+
+Enjoy your stay at Brew AI Cafe! ☕🤖 
