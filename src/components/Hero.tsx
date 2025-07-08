@@ -36,10 +36,10 @@ const Hero = ({ onAIRecommenderOpen }: HeroProps) => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/menu" className="btn-gold text-lg px-8 py-4 animate-glow hover:scale-110 transform transition-all duration-300 shadow-2xl">
+            <Link to="/menu" className="btn-gold text-lg px-8 py-4  hover:scale-110 transform transition-all duration-300 shadow-2xl">
               <span className="flex items-center gap-2">
                 Explore Menu
-                <span className="animate-bounce">📋</span>
+                <span >📋</span>
               </span>
             </Link>
             <button 

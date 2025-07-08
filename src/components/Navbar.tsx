@@ -3,112 +3,111 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import ReserveTable from './ReserveTable';
 
-const Navbar = () => {
+const navItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Menu', path: '/menu' },
+  { name: 'About', path: '/about' },
+  { name: 'Contact', path: '/contact' },
+];
+
+const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isReserveTableOpen, setIsReserveTableOpen] = useState(false);
   const location = useLocation();
 
-  const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Menu', path: '/menu' },
-    { name: 'About', path: '/about' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Contact', path: '/contact' },
-  ];
-
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">K</span>
-            </div>
-            <span className="font-serif text-xl font-semibold text-primary">
-              Koe-The Kafe
+    <>
+      {/* Desktop Navbar */}
+      <nav className="hidden md:flex justify-between items-center px-6 py-4 border-b border-border bg-background">
+        <div className="text-xl font-bold">My Café</div>
+        <div className="flex items-center gap-6">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className={`text-base font-medium transition-colors duration-200 ${
+                isActive(item.path)
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+          <button
+            onClick={() => setIsReserveTableOpen(true)}
+            className="btn-coffee px-4 py-2 rounded-md hover:scale-105 transform transition-all duration-300"
+          >
+            <span className="flex items-center justify-center gap-2">
+              Reserve Table <span className="animate-bounce">✨</span>
             </span>
-          </Link>
+          </button>
+        </div>
+      </nav>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+      {/* Mobile Menu Toggle Button */}
+      <div className="md:hidden px-4 py-3 flex justify-between items-center border-b border-border bg-background">
+        <span className="text-xl font-bold">My Café</span>
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="text-lg focus:outline-none"
+        >
+          ☰
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden border-t border-border bg-background">
+          <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative py-2 text-sm font-medium transition-colors duration-200 ${
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                   isActive(item.path)
-                    ? 'text-primary'
-                    : 'text-muted-foreground hover:text-foreground'
-                } after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 ${
-                  isActive(item.path) ? 'after:scale-x-100' : ''
+                    ? 'text-primary bg-secondary'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
                 }`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <button 
-              onClick={() => setIsReserveTableOpen(true)}
-              className="btn-coffee animate-glow hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              <span className="flex items-center gap-2">
-                Reserve Table 
-                <span className="animate-bounce">✨</span>
-              </span>
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <Menu className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t border-border">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                    isActive(item.path)
-                      ? 'text-primary bg-secondary'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="px-3 py-2">
-                <button 
-                  onClick={() => {
-                    setIsReserveTableOpen(true);
-                    setIsMenuOpen(false);
-                  }}
-                  className="btn-coffee w-full hover:scale-105 transform transition-all duration-300"
-                >
-                  <span className="flex items-center justify-center gap-2">
-                    Reserve Table 
-                    <span className="animate-bounce">✨</span>
-                  </span>
-                </button>
-              </div>
+            <div className="px-3 py-2">
+              <button
+                onClick={() => {
+                  setIsReserveTableOpen(true);
+                  setIsMenuOpen(false);
+                }}
+                className="btn-coffee w-full hover:scale-105 transform transition-all duration-300"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  Reserve Table <span className="animate-bounce">✨</span>
+                </span>
+              </button>
             </div>
           </div>
-        )}
-      </div>
-      
-      {/* Reserve Table Component */}
-      <ReserveTable isOpen={isReserveTableOpen} onClose={() => setIsReserveTableOpen(false)} />
-    </nav>
+        </div>
+      )}
+
+      {/* Reserve Table Modal */}
+      {isReserveTableOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-background p-6 rounded-xl shadow-lg max-w-md w-full relative">
+            <button
+              onClick={() => setIsReserveTableOpen(false)}
+              className="absolute top-3 right-3 text-xl text-muted-foreground hover:text-foreground"
+            >
+              ✖
+            </button>
+            <ReserveTable isOpen={isReserveTableOpen} onClose={() => setIsReserveTableOpen(false)} />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

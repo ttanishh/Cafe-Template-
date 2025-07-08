@@ -15,7 +15,7 @@ const Menu = () => {
     {
       name: 'Signature Espresso',
       description: 'Our house blend with rich chocolate undertones and a smooth finish. Crafted from single-origin beans.',
-      price: '$4.50',
+      price: '₹373.00',
       image: latteArtImage,
       category: 'Espresso',
       flavorNotes: ['Chocolate', 'Smooth', 'Rich'],
@@ -24,7 +24,7 @@ const Menu = () => {
     {
       name: 'AI-Crafted Americano',
       description: 'Personalized strength and flavor profile based on your taste preferences and current mood.',
-      price: '$5.00',
+      price: '₹415.00',
       image: coffeeBeansImage,
       category: 'Specialty',
       flavorNotes: ['Customized', 'Bold', 'Personal'],
@@ -33,7 +33,7 @@ const Menu = () => {
     {
       name: 'Golden Honey Latte',
       description: 'Creamy steamed milk with our signature espresso, sweetened with local wildflower honey.',
-      price: '$5.75',
+      price: '₹478.00',
       image: latteArtImage,
       category: 'Specialty',
       flavorNotes: ['Sweet', 'Creamy', 'Floral'],
@@ -42,7 +42,7 @@ const Menu = () => {
     {
       name: 'Nitro Cold Brew',
       description: 'Smooth, cascading cold brew infused with nitrogen for a creamy texture without dairy.',
-      price: '$4.25',
+      price: '₹352.00',
       image: coffeeBeansImage,
       category: 'Cold Brew',
       flavorNotes: ['Smooth', 'Creamy', 'Bold'],
@@ -51,7 +51,7 @@ const Menu = () => {
     {
       name: 'Seasonal Spice Blend',
       description: 'Limited edition blend featuring warming spices and seasonal flavors, changes monthly.',
-      price: '$6.00',
+      price: '₹498.00',
       image: latteArtImage,
       category: 'Seasonal',
       flavorNotes: ['Spiced', 'Warm', 'Limited'],
@@ -60,7 +60,7 @@ const Menu = () => {
     {
       name: 'Caramel Cloud Macchiato',
       description: 'Layers of steamed milk, vanilla syrup, espresso shots, and caramel drizzle.',
-      price: '$5.50',
+      price: '₹457.00',
       image: coffeeBeansImage,
       category: 'Specialty',
       flavorNotes: ['Sweet', 'Layered', 'Indulgent'],
