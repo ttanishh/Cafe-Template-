@@ -36,14 +36,20 @@ const Hero = ({ onAIRecommenderOpen }: HeroProps) => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/menu" className="btn-gold text-lg px-8 py-4 animate-glow">
-              Explore Menu
+            <Link to="/menu" className="btn-gold text-lg px-8 py-4 animate-glow hover:scale-110 transform transition-all duration-300 shadow-2xl">
+              <span className="flex items-center gap-2">
+                Explore Menu
+                <span className="animate-bounce">📋</span>
+              </span>
             </Link>
             <button 
               onClick={onAIRecommenderOpen}
-              className="glass-morphism text-white border border-white/20 hover:bg-white/20 px-8 py-4 rounded-lg font-medium transition-all duration-300 neon-border"
+              className="glass-morphism text-white border border-white/20 hover:bg-white/20 px-8 py-4 rounded-lg font-medium transition-all duration-300 neon-border hover:scale-105 transform"
             >
-              AI Recommender ✨
+              <span className="flex items-center gap-2">
+                AI Recommender 
+                <span className="animate-pulse">✨</span>
+              </span>
             </button>
           </div>
         </div>

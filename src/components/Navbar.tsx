@@ -51,9 +51,12 @@ const Navbar = () => {
             ))}
             <button 
               onClick={() => setIsReserveTableOpen(true)}
-              className="btn-coffee animate-glow"
+              className="btn-coffee animate-glow hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              Reserve Table ✨
+              <span className="flex items-center gap-2">
+                Reserve Table 
+                <span className="animate-bounce">✨</span>
+              </span>
             </button>
           </div>
 
@@ -90,9 +93,12 @@ const Navbar = () => {
                     setIsReserveTableOpen(true);
                     setIsMenuOpen(false);
                   }}
-                  className="btn-coffee w-full"
+                  className="btn-coffee w-full hover:scale-105 transform transition-all duration-300"
                 >
-                  Reserve Table ✨
+                  <span className="flex items-center justify-center gap-2">
+                    Reserve Table 
+                    <span className="animate-bounce">✨</span>
+                  </span>
                 </button>
               </div>
             </div>
