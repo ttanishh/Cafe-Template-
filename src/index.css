@@ -261,9 +261,9 @@ All colors MUST be HSL.
   /* Premium Interactive Elements */
   .holographic {
     @apply bg-gradient-to-r from-amber-400/20 via-orange-400/20 to-yellow-400/20;
-    @apply backdrop-blur-sm border border-accent/30;
+    @apply backdrop-blur-sm border border-gold/30;
     @apply relative overflow-hidden;
-    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.3);
   }
   
   .holographic::before {
@@ -273,16 +273,23 @@ All colors MUST be HSL.
   }
   
   .holographic:hover {
-    box-shadow: 0 0 30px hsl(var(--accent) / 0.5), 0 0 40px hsl(var(--accent) / 0.3);
+    box-shadow: 0 0 30px hsl(var(--gold) / 0.5), 0 0 40px hsl(var(--gold) / 0.3);
   }
   
+  .holographic::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent;
+    @apply transform -skew-x-12 animate-[shimmer_3s_ease-in-out_infinite];
+  }
+  
+  
   .neon-border {
-    @apply border-2 border-accent;
-    box-shadow: 0 0 15px hsl(var(--accent) / 0.6), inset 0 0 15px hsl(var(--accent) / 0.1);
+    @apply border-2 border-gold;
+    box-shadow: 0 0 15px hsl(var(--gold) / 0.6), inset 0 0 15px hsl(var(--gold) / 0.1);
   }
   
   .neon-border:hover {
-    box-shadow: 0 0 25px hsl(var(--accent) / 0.8), inset 0 0 25px hsl(var(--accent) / 0.2);
+    box-shadow: 0 0 25px hsl(var(--gold) / 0.8), inset 0 0 25px hsl(var(--gold) / 0.2);
   }
   
   .glass-morphism {
